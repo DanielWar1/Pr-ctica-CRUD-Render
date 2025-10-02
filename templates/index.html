@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Lista de Empleados{% endblock %}
 {% block content %}
-<a href="{{ url_for('create_empleado') }}" class="btn btn-success mb-3">Agregar Empleado</a>
-<br>
-<table class="table table-bordered">
+<h1 class="title is-3">Empleados</h1>
+<a href="{{ url_for('create_empleado') }}" class="button is-success mb-4">Nuevo Empleado</a>
+<table class="table is-fullwidth is-striped">
     <thead>
         <tr>
             <th>No. Empleado</th>
@@ -25,11 +25,9 @@
             <td>{{ empleado.departamento }}</td>
             <td>{{ empleado.puesto }}</td>
             <td>
-                <a href="{{ url_for('delete_empleado', no_empleado=empleado.no_empleado) }}" 
-                class="btn btn-danger">Eliminar</a> 
-                <a href="{{ url_for('update_empleado', no_empleado=empleado.no_empleado) }}" 
-                class="btn btn-warning">Actualizar</a> 
-            </td> 
+                <a href="{{ url_for('update_empleado', no_empleado=empleado.no_empleado) }}" class="button is-small is-info">Editar</a>
+                <a href="{{ url_for('delete_empleado', no_empleado=empleado.no_empleado) }}" class="button is-small is-danger">Eliminar</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
